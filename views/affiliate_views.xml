@@ -16,7 +16,9 @@
                     <field name="link_tracker_ids">
                         <tree editable="bottom">
                             <field name="url" widget="url" options="{'target': '_blank'}"/>
-                            <field name="utm_campaign"/>
+                            <field name="code"/>
+                            <field name="campaign_id"/>
+                            <field name="source_id"/>
                         </tree>
                     </field>
                 </group>
