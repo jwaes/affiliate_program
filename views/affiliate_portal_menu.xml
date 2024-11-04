@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="portal_affiliate_links" inherit_id="portal.portal_my_home" name="Portal Affiliate Links">
-        <xpath expr="//div[@id='portal_menu']/ul" position="inside">
-            <li><a href="/my/affiliate_links" role="menuitem">My Affiliate Links</a></li>
+    <!-- Breadcrumb navigation for Affiliate Links -->
+    <template id="portal_affiliate_breadcrumb" name="Affiliate Links" inherit_id="portal.portal_breadcrumbs" priority="30">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'affiliate_links'" t-attf-class="breadcrumb-item #{'active ' if affiliate else ''}">
+                <a t-if="affiliate" t-attf-href="/my/affiliate_links?{{ keep_query() }}">Affiliate Links</a>
+                <t t-else="">Affiliate Links</t>
+            </li>
         </xpath>
     </template>
+
+        <!-- Adding Affiliate Links to the Portal Home Menu -->
+        <template id="portal_my_home_menu_affiliate" name="Affiliate Links" inherit_id="portal.portal_my_home" priority="30">
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+                <t t-set="portal_affiliate_links_enable" t-value="True"/>
+            </xpath>
+            <div id="portal_affiliate_links" position="inside">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="icon" t-value="'/affiliate_program/static/src/img/affiliate.svg'"/>
+                    <t t-set="title">Affiliate Links</t>
+                    <t t-set="url" t-value="'/my/affiliate_links'"/>
+                    <t t-set="text">View your Affiliate Links</t>
+                    <t t-set="placeholder_count" t-value="'portal_affiliate_links'"/>
+                </t>
+            </div>
+        </template>
+
 </odoo>

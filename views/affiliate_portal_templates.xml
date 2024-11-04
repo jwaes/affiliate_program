@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="portal_affiliate_links_template" name="Portal Affiliate Links">
-        <t t-call="website.portal_layout">
-            <div class="container">
-                <h1>My Affiliate Links</h1>
-                <t t-if="affiliate.link_tracker_ids">
-                    <a href="/affiliate/create_link" class="btn btn-primary mb-3">Create New Link</a>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Target URL</th>
-                                <th>Campaign</th>
-                                <th>Clicks</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <t t-foreach="affiliate.link_tracker_ids" t-as="link">
-                                <tr>
-                                    <td><a t-att-href="link.url" target="_blank"><t t-esc="link.url"/></a></td>
-                                    <td><t t-esc="link.utm_campaign"/></td>
-                                    <td><t t-esc="link.click_count"/></td>
-                                </tr>
-                            </t>
-                        </tbody>
-                    </table>
+    <template id="portal_my_affiliate_links_view" name="Affiliate Links">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Affiliate Links</t>
+            </t>
+            <t t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th class="text-left">Link Name</th>
+                        <th class="text-center">URL</th>
+                        <th class="text-center">Campaign</th>
+                        <th class="text-end">Created On</th>
+                    </tr>
+                </thead>
+                <t t-foreach="affiliate.link_tracker_ids" t-as="link">
+                    <tr>
+                        <td class='text-left'>
+                            <span t-field="link.name"/>
+                        </td>
+                        <td class='text-center'>
+                            <a t-att-href="link.url" target="_blank"><span t-field="link.url"/></a>
+                        </td>
+                        <td class='text-center'>
+                            <span t-field="link.utm_campaign"/>
+                        </td>
+                        <td class='text-end'>
+                            <span t-field="link.create_date"/>
+                        </td>
+                    </tr>
                 </t>
-                <t t-else="">
-                    <p>You have not created any affiliate links yet.</p>
-                    <a href="/affiliate/create_link" class="btn btn-primary">Create Your First Link</a>
-                </t>
-            </div>
+            </t>
         </t>
     </template>
 </odoo>
