@@ -1,6 +1,6 @@
 {
     'name': "Affiliate Program",
-    'version': '17.0.1.18.0',
+    'version': '17.0.1.19.0',
     'category': 'Sales/CRM',
     'summary': 'Implement an affiliate program with UTM tracking.',
     'author': 'Cline',

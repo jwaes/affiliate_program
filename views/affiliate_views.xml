@@ -16,7 +16,6 @@
                     <field name="link_tracker_ids">
                         <tree editable="bottom">
                             <field name="url" widget="url" options="{'target': '_blank'}"/>
-                            <field name="click_count" readonly="1"/>
                             <field name="utm_campaign"/>
                         </tree>
                     </field>
