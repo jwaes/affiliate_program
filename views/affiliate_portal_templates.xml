@@ -9,7 +9,6 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Link Name</th>
                                 <th>Target URL</th>
                                 <th>Campaign</th>
                                 <th>Clicks</th>
@@ -18,7 +17,6 @@
                         <tbody>
                             <t t-foreach="affiliate.link_tracker_ids" t-as="link">
                                 <tr>
-                                    <td><t t-esc="link.name"/></td>
                                     <td><a t-att-href="link.url" target="_blank"><t t-esc="link.url"/></a></td>
                                     <td><t t-esc="link.utm_campaign"/></td>
                                     <td><t t-esc="link.click_count"/></td>
