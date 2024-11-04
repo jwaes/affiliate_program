@@ -1,0 +1,30 @@
+<odoo>
+    <record id="view_sales_analysis_by_affiliate_search" model="ir.ui.view">
+        <field name="name">sale.report.affiliate.search</field>
+        <field name="model">sale.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="Affiliate" name="affiliate_id" domain="[]"/>
+                <filter string="Program" name="program_id" domain="[]"/>
+                <field name="affiliate_id"/>
+                <field name="program_id"/>
+                <field name="date"/>
+                <filter string="My Sales" name="my_sales" domain="[('user_id', '=', uid)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_sales_analysis_by_affiliate_pivot" model="ir.ui.view">
+        <field name="name">sale.report.affiliate.pivot</field>
+        <field name="model">sale.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Sales Analysis by Affiliate">
+                <field name="affiliate_id" type="row"/>
+                <field name="program_id" type="row"/>
+                <field name="amount_total" type="measure"/>
+                <field name="product_id" type="col"/>
+                <field name="date" type="col"/>
+            </pivot>
+        </field>
+    </record>
+</odoo>

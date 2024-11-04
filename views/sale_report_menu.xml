@@ -1,0 +1,16 @@
+<odoo>
+    <menuitem id="menu_sales_analysis_by_affiliate"
+              name="Sales Analysis by Affiliate"
+              parent="sale.sale_order_report"
+              action="action_sales_analysis_by_affiliate"
+              sequence="10"/>
+
+    <record id="action_sales_analysis_by_affiliate" model="ir.actions.act_window">
+        <field name="name">Sales Analysis by Affiliate</field>
+        <field name="res_model">sale.report</field>
+        <field name="view_mode">pivot,graph</field>
+        <field name="view_id" ref="view_sales_analysis_by_affiliate_pivot"/>
+        <field name="search_view_id" ref="view_sales_analysis_by_affiliate_search"/>
+        <field name="context">{}</field>
+    </record>
+</odoo>

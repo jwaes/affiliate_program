@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_affiliate" model="ir.ui.view">
+            <field name="name">res.partner.form.affiliate</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <group name="affiliate_info">
+                        <field name="affiliate_ids">
+                            <tree>
+                                <field name="program_id"/>
+                                <field name="unique_code"/>
+                                <field name="link_tracker_ids"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_affiliate_program_user,affiliate_program.user,model_affiliate_program,base.group_user,1,1,1,1
+access_affiliate_program_manager,affiliate_program.manager,model_affiliate_program,base.group_system,1,1,1,1
+access_affiliate_affiliate_user,affiliate_affiliate.user,model_affiliate_affiliate,base.group_user,1,1,1,1
+access_affiliate_affiliate_manager,affiliate_affiliate.manager,model_affiliate_affiliate,base.group_system,1,1,1,1

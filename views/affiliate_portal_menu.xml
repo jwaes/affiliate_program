@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_affiliate_links" inherit_id="portal.portal_my_home" name="Portal Affiliate Links">
+        <xpath expr="//div[@id='portal_menu']/ul" position="inside">
+            <li><a href="/my/affiliate_links" role="menuitem">My Affiliate Links</a></li>
+        </xpath>
+    </template>
+</odoo>

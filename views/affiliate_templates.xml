@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+
+
+
+
+    <template id="create_link_template" name="Create Affiliate Link">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Create a Custom Affiliate Link</h1>
+                <form action="/affiliate/create_link/submit" method="post">
+                    <div class="form-group">
+                        <label for="target_url">Target URL</label>
+                        <input type="url" name="target_url" id="target_url" required="required" placeholder="Enter the page URL"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="campaign_name">Campaign Name</label>
+                        <input type="text" name="campaign_name" id="campaign_name" placeholder="Enter a campaign name (optional)"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Link</button>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <template id="affiliate_links_template" name="Affiliate Links">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Your Affiliate Links</h1>
+                <t t-if="affiliate.link_tracker_ids">
+                    <a href="/affiliate/create_link" class="btn btn-primary mb-3">Create New Link</a>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Link Name</th>
+                                <th>Target URL</th>
+                                <th>Campaign</th>
+                                <th>Clicks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="affiliate.link_tracker_ids" t-as="link">
+                                <tr>
+                                    <td><t t-esc="link.name"/></td>
+                                    <td><a t-att-href="link.url" target="_blank"><t t-esc="link.url"/></a></td>
+                                    <td><t t-esc="link.utm_campaign"/></td>
+                                    <td><t t-esc="link.click_count"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+                <t t-else="">
+                    <p>You have not created any affiliate links yet.</p>
+                    <a href="/affiliate/create_link" class="btn btn-primary">Create Your First Link</a>
+                </t>
+            </div>
+        </t>
+    </template>
+    
+    
+
+</odoo>

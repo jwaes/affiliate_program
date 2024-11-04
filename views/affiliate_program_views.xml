@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_affiliate_program_tree" model="ir.ui.view">
+            <field name="name">affiliate.program.tree</field>
+            <field name="model">affiliate.program</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_affiliate_program_form" model="ir.ui.view">
+            <field name="name">affiliate.program.form</field>
+            <field name="model">affiliate.program</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_affiliate_program" model="ir.actions.act_window">
+            <field name="name">Affiliate Programs</field>
+            <field name="res_model">affiliate.program</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_affiliate_program" name="Affiliate Programs" parent="base.menu_root" action="action_affiliate_program"/>
+
+    </data>
+</odoo>

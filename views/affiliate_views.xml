@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+<record id="view_affiliate_form" model="ir.ui.view">
+    <field name="name">affiliate.affiliate.form</field>
+    <field name="model">affiliate.affiliate</field>
+    <field name="arch" type="xml">
+        <form string="Affiliate">
+            <sheet>
+                <group>
+                    <field name="program_id"/>
+                    <field name="unique_code" readonly="1"/>
+                </group>
+                <group>
+                    <field name="link_tracker_ids">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="url" widget="url" options="{'target': '_blank'}"/>
+                            <field name="click_count" readonly="1"/>
+                            <field name="utm_campaign"/>
+                        </tree>
+                    </field>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+</odoo>
